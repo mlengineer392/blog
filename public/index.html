@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+	<meta name="generator" content="Hugo 0.89.4" /><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'><title>OneHotCoder</title>
+
+<link rel='canonical' href='https://onehotcoder.github.io/blog/'>
+
+<link rel="stylesheet" href="/blog/scss/style.min.css"><meta property='og:title' content='OneHotCoder'>
+<meta property='og:description' content='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'>
+<meta property='og:url' content='https://onehotcoder.github.io/blog/'>
+<meta property='og:site_name' content='OneHotCoder'>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2021-11-22T12:40:40&#43;05:01 '/>
+<meta name="twitter:title" content="OneHotCoder">
+<meta name="twitter:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."><link rel="alternate" type="application/rss&#43;xml" href="https://onehotcoder.github.io/blog/index.xml">
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/blog/img/avatar_hu6bf450a5bdd52b5da9f12b4299d8c31c_259009_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/blog">OneHotCoder</a></h1>
+        <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/CaiJimmy/hugo-theme-stack'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a 
+                            href='https://twitter.com'
+                            target="_blank"
+                            title="Twitter"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/blog/blog/' >
+                
+                
+                
+                    <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 496.157 496.157" style="enable-background:new 0 0 496.157 496.157;" xml:space="preserve">
+<path style="fill:#A3D5E0;" d="M248.077,0C111.072,0,0,111.063,0,248.083c0,137.004,111.071,248.074,248.076,248.074
+	c137.012,0,248.081-111.07,248.081-248.074C496.158,111.063,385.088,0,248.077,0z"/>
+<path style="fill:#E5AA17;" d="M248.079,97.743c0,0-151.866,126.003-151.866,138.848v120.816c0,12.845,10.412,23.265,23.262,23.265
+	h81.613v-72.129c0-16.777,13.599-30.372,30.374-30.372h34.167c16.771,0,30.374,13.595,30.374,30.372v72.129h83.215
+	c12.845,0,23.259-10.42,23.259-23.265V236.592C402.476,223.746,248.079,97.743,248.079,97.743z"/>
+<g>
+	<path style="fill:#C69422;" d="M436.402,229.347L259.496,76.509c-6.683-5.772-16.773-5.038-22.544,1.641
+		c-5.771,6.687-5.034,16.778,1.648,22.546l176.905,152.837c6.682,5.769,16.772,5.03,22.541-1.648
+		C443.818,245.202,443.082,235.115,436.402,229.347z"/>
+	<path style="fill:#C69422;" d="M261.795,78.149c-5.769-6.679-15.857-7.413-22.538-1.641L62.346,229.347
+		c-6.68,5.769-7.416,15.856-1.646,22.539c5.769,6.679,15.859,7.417,22.54,1.648l176.909-152.837
+		C266.831,94.927,267.568,84.837,261.795,78.149z"/>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/blog/blog/about/' >
+                
+                
+                
+                    <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 58 58" style="enable-background:new 0 0 58 58;" xml:space="preserve">
+<circle style="fill:#25AE88;" cx="29" cy="29" r="29"/>
+<path style="fill:#FBCE9D;" d="M52.932,45.376C52.275,38.985,46.876,34,40.311,34h-5.946C33.611,34,33,33.389,33,32.635V31.99
+	c0-0.583,0.379-1.082,0.925-1.287c5.804-2.182,9.778-11.704,8.971-18.433C42.134,5.919,36.97,0.801,30.614,0.09
+	c-0.517-0.058-1.029-0.086-1.535-0.088c-0.016,0-0.032-0.001-0.048-0.001C21.285-0.016,15,6.258,15,14
+	c0,6.024,3.807,14.755,9.145,16.729C24.668,30.922,25,31.442,25,32v0.635C25,33.389,24.389,34,23.635,34h-5.946
+	c-6.565,0-11.964,4.985-12.621,11.376C10.293,52.998,19.061,58,29,58S47.707,52.998,52.932,45.376z"/>
+<path style="fill:#6B5B4B;" d="M33.492,6.61c3.715,1.021,7.213,3.306,9.453,6.322c-0.016-0.221-0.023-0.447-0.049-0.663
+	C42.134,5.919,36.97,0.801,30.614,0.09c-0.517-0.058-1.029-0.086-1.535-0.088c-0.016,0-0.032-0.001-0.048-0.001
+	c-6.92-0.015-12.66,4.995-13.808,11.583l0.005,0c0.179,0.252,0.354,0.507,0.545,0.75c0.07-0.087,0.141-0.173,0.213-0.258
+	c2-2.38,5.341-2.931,8.183-1.671C25.034,10.787,25.992,11,27,11C29.942,11,32.456,9.182,33.492,6.61z"/>
+<path style="fill:#556080;" d="M52.932,45.376C52.275,38.985,46.876,34,40.311,34H37l-8,8l-8-8h-3.311
+	c-6.565,0-11.964,4.985-12.621,11.376C10.293,52.998,19.061,58,29,58S47.707,52.998,52.932,45.376z"/>
+<path style="fill:#424A60;" d="M43,54.392c0.685-0.379,1.35-0.789,2-1.22V47h-2V54.392z"/>
+<path style="fill:#424A60;" d="M15,54.392V47h-2v6.172C13.65,53.603,14.315,54.013,15,54.392z"/>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/blog/blog/archives/' >
+                
+                
+                
+                    <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;" xml:space="preserve">
+<path style="fill:#048FAF;" d="M144,469.6c0,7.2-4,10.4-12,10.4H9.6c-8,0-9.6-3.2-9.6-10.4V26.4C0,19.2,1.6,16,9.6,16h123.2
+	c7.2,0,11.2,3.2,11.2,10.4V469.6z"/>
+<path style="fill:#09637F;" d="M8,16h124c8,0,12,3.2,12,10.4v442.4c0,7.2-4,10.4-12,10.4H8"/>
+<path style="fill:#DAE6EA;" d="M104,276c0,3.2-0.8,4-4,4H44c-4,0-4-0.8-4-4V60c0-4,0.8-4,4-4h55.2c4,0,4.8,0.8,4.8,4V276z"/>
+<g>
+	<path style="fill:#B2C6CC;" d="M40,60c0-4,0.8-4,4-4h55.2c4,0,4.8,0.8,4.8,4v215.2c0,3.2-0.8,4-4,4"/>
+	<path style="fill:#B2C6CC;" d="M103.2,316c0,1.6-1.6,4-3.2,4H41.6c-1.6,0-3.2-2.4-3.2-4l0,0c0-1.6,1.6-4,3.2-4H100
+		C101.6,312,103.2,314.4,103.2,316L103.2,316z"/>
+	<path style="fill:#B2C6CC;" d="M103.2,340c0,1.6-1.6,4-3.2,4H41.6c-1.6,0-3.2-2.4-3.2-4l0,0c0-1.6,1.6-4,3.2-4H100
+		C101.6,336,103.2,338.4,103.2,340L103.2,340z"/>
+	<path style="fill:#B2C6CC;" d="M103.2,364c0,1.6-1.6,4-3.2,4H41.6c-1.6,0-3.2-2.4-3.2-4l0,0c0-1.6,1.6-4,3.2-4H100
+		C101.6,360,103.2,362.4,103.2,364L103.2,364z"/>
+</g>
+<circle style="fill:#00233F;" cx="71.2" cy="425.6" r="28.8"/>
+<path d="M71.2,396.8c16,0,28.8,12.8,28.8,28.8s-12.8,28.8-28.8,28.8"/>
+<path style="fill:#F44D3B;" d="M320,469.6c0,7.2-3.2,10.4-10.4,10.4H186.4c-7.2,0-10.4-3.2-10.4-10.4V26.4c0-7.2,3.2-10.4,10.4-10.4
+	h123.2c7.2,0,10.4,3.2,10.4,10.4V469.6z"/>
+<path style="fill:#A00D05;" d="M184,16h125.6c7.2,0,10.4,3.2,10.4,10.4v442.4c0,7.2-3.2,10.4-10.4,10.4H184"/>
+<g>
+	<path style="fill:#B2C6CC;" d="M280,316c0,1.6-1.6,4-3.2,4h-58.4c-1.6,0-3.2-2.4-3.2-4l0,0c0-1.6,1.6-4,3.2-4h58.4
+		C279.2,312,280,314.4,280,316L280,316z"/>
+	<path style="fill:#B2C6CC;" d="M280,340c0,1.6-1.6,4-3.2,4h-58.4c-1.6,0-3.2-2.4-3.2-4l0,0c0-1.6,1.6-4,3.2-4h58.4
+		C279.2,336,280,338.4,280,340L280,340z"/>
+	<path style="fill:#B2C6CC;" d="M280,364c0,1.6-1.6,4-3.2,4h-58.4c-1.6,0-3.2-2.4-3.2-4l0,0c0-1.6,1.6-4,3.2-4h58.4
+		C279.2,360,280,362.4,280,364L280,364z"/>
+</g>
+<circle style="fill:#00233F;" cx="248" cy="425.6" r="28.8"/>
+<path d="M248,396.8c16,0,28.8,12.8,28.8,28.8S264,454.4,248,454.4"/>
+<path style="fill:#DAE6EA;" d="M280,276c0,3.2-0.8,4-4,4h-56c-4,0-4-0.8-4-4V60c0-4,0.8-4,4-4h55.2c4,0,4.8,0.8,4.8,4V276z"/>
+<path style="fill:#B2C6CC;" d="M216,60c0-4,0.8-4,4-4h55.2c4,0,4.8,0.8,4.8,4v215.2c0,3.2-0.8,4-4,4"/>
+<path style="fill:#23C181;" d="M496,469.6c0,7.2-1.6,10.4-9.6,10.4H364c-7.2,0-12-3.2-12-10.4V26.4c0-7.2,4-10.4,12-10.4h123.2
+	c7.2,0,8.8,3.2,8.8,10.4V469.6z"/>
+<path style="fill:#007543;" d="M360,16h126.4c8,0,9.6,3.2,9.6,10.4v442.4c0,7.2-1.6,10.4-9.6,10.4H360"/>
+<g>
+	<path style="fill:#B2C6CC;" d="M457.6,316c0,1.6-1.6,4-3.2,4H396c-1.6,0-3.2-2.4-3.2-4l0,0c0-1.6,1.6-4,3.2-4h58.4
+		C456,312,457.6,314.4,457.6,316L457.6,316z"/>
+	<path style="fill:#B2C6CC;" d="M457.6,340c0,1.6-1.6,4-3.2,4H396c-1.6,0-3.2-2.4-3.2-4l0,0c0-1.6,1.6-4,3.2-4h58.4
+		C456,336,457.6,338.4,457.6,340L457.6,340z"/>
+	<path style="fill:#B2C6CC;" d="M457.6,364c0,1.6-1.6,4-3.2,4H396c-1.6,0-3.2-2.4-3.2-4l0,0c0-1.6,1.6-4,3.2-4h58.4
+		C456,360,457.6,362.4,457.6,364L457.6,364z"/>
+</g>
+<circle style="fill:#00233F;" cx="424.8" cy="425.6" r="28.8"/>
+<path d="M424.8,396.8c16,0,28.8,12.8,28.8,28.8s-12.8,28.8-28.8,28.8"/>
+<path style="fill:#DAE6EA;" d="M456,276c0,3.2-0.8,4-4,4h-56c-4,0-4-0.8-4-4V60c0-4,0.8-4,4-4h55.2c4,0,4.8,0.8,4.8,4V276z"/>
+<path style="fill:#B2C6CC;" d="M392,60c0-4,0.8-4,4-4h55.2c4,0,4.8,0.8,4.8,4v215.2c0,3.2-0.8,4-4,4"/>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/blog/blog/search/' >
+                
+                
+                
+                    <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 423.662 423.662" style="enable-background:new 0 0 423.662 423.662;" xml:space="preserve">
+<g>
+	<path style="fill:#E6E6E6;" d="M274.255,259.401l21.51,21.51c-3.21,1.39-6.22,3.39-8.84,6.01s-4.63,5.63-6.01,8.84l-21.51-21.5
+		c2.62-2.29,5.18-4.69,7.67-7.18C269.575,264.581,271.965,262.021,274.255,259.401z"/>
+	<path style="fill:#666666;" d="M415.315,415.321c-11.13,11.12-29.17,11.12-40.3,0l-88.09-88.09c-8.51-8.51-10.51-21.06-6.01-31.47
+		c1.38-3.21,3.39-6.22,6.01-8.84s5.63-4.62,8.84-6.01c3.6-1.56,7.45-2.34,11.31-2.34c7.29,0,14.58,2.79,20.15,8.35l88.09,88.09
+		C426.445,386.141,426.445,404.191,415.315,415.321z"/>
+	<path style="fill:#AFDAF9;" d="M289.915,156.421c0,21.88-5.26,42.53-14.59,60.75l-60.16-72.71l-70.4,82.94l-48.81-58.98
+		l-50.93,61.57h-0.01c-13.96-21.09-22.09-46.38-22.09-73.57c0-73.73,59.77-133.49,133.5-133.49
+		C230.145,22.931,289.915,82.691,289.915,156.421z M135.245,93.921c0-11.41-9.25-20.65-20.65-20.65c-11.41,0-20.65,9.24-20.65,20.65
+		c0,11.4,9.24,20.65,20.65,20.65C125.995,114.571,135.245,105.321,135.245,93.921z"/>
+	<path style="fill:#F7E88B;" d="M144.765,227.401l70.4-82.94l60.16,72.71c-22.11,43.19-67.06,72.74-118.9,72.74
+		c-19.52,0-38.06-4.19-54.77-11.72L144.765,227.401z"/>
+	<path style="opacity:0.51;fill:#F2F2F2;enable-background:new    ;" d="M266.895,156.421c0,4.14-3.36,7.5-7.5,7.5
+		c-4.15,0-7.5-3.36-7.5-7.5c0-31.76-15.74-61.36-42.1-79.17c-3.43-2.32-4.34-6.98-2.02-10.41c2.32-3.43,6.98-4.34,10.42-2.02
+		C248.685,85.421,266.895,119.671,266.895,156.421z"/>
+	<path style="opacity:0.51;fill:#F2F2F2;enable-background:new    ;" d="M183.295,49.251c4.02,1,6.47,5.07,5.46,9.09
+		c-0.85,3.41-3.91,5.68-7.27,5.68c-0.6,0-1.21-0.07-1.82-0.22c-7.56-1.89-15.38-2.85-23.24-2.85c-4.15,0-7.5-3.36-7.5-7.5
+		s3.35-7.5,7.5-7.5C165.515,45.951,174.555,47.061,183.295,49.251z"/>
+	<path style="fill:#DDCA6C;" d="M95.955,168.421l48.81,58.98l-43.11,50.79c-23.14-10.41-42.77-27.23-56.64-48.2h0.01L95.955,168.421
+		z"/>
+	<path style="fill:#F9DD53;" d="M114.595,73.271c11.4,0,20.65,9.24,20.65,20.65c0,11.4-9.25,20.65-20.65,20.65
+		c-11.41,0-20.65-9.25-20.65-20.65C93.945,82.511,103.185,73.271,114.595,73.271z"/>
+	<path style="fill:#666666;" d="M267.075,45.761c-50.58-50.58-127.47-59.23-187.04-25.94c-12.29,6.87-23.84,15.51-34.27,25.94
+		c-61.02,61.02-61.02,160.3,0,221.32c58.52,58.52,152.24,60.91,213.64,7.18c2.62-2.29,5.18-4.69,7.67-7.18
+		c2.5-2.5,4.89-5.06,7.18-7.68c5.71-6.53,10.79-13.42,15.23-20.59C326.855,178.481,319.375,98.061,267.075,45.761z M275.325,217.171
+		c-4.3,8.4-9.46,16.28-15.38,23.53c-24.47,30.04-61.76,49.21-103.52,49.21c-19.52,0-38.06-4.19-54.77-11.72
+		c-23.14-10.41-42.77-27.23-56.64-48.2c-13.96-21.09-22.09-46.38-22.09-73.57c0-43.9,21.19-82.85,53.9-107.17
+		c22.23-16.54,49.77-26.32,79.6-26.32c73.72,0,133.49,59.76,133.49,133.49C289.915,178.301,284.655,198.951,275.325,217.171z"/>
+	<path style="opacity:0.56;fill:#808080;enable-background:new    ;" d="M415.315,415.321c-11.13,11.12-29.17,11.12-40.3,0
+		l-47.79-128.4l88.09,88.09C426.445,386.141,426.445,404.191,415.315,415.321z"/>
+	<path style="opacity:0.23;fill:#F2F2F2;enable-background:new    ;" d="M261.44,240.701c-24.47,30.04-61.76,49.21-103.52,49.21
+		c-19.52,0-38.06-4.19-54.77-11.72c-23.14-10.41-42.77-27.23-56.64-48.2c-13.96-21.09-22.09-46.38-22.09-73.57
+		c0-43.9,21.19-82.85,53.9-107.17c-0.06,1.85-0.09,3.7-0.09,5.56C78.23,156.581,160,239.251,261.44,240.701z"/>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+<main class="main full-width">
+    
+    
+    
+    
+
+    <section class="article-list">
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/blog/p/linear-regression-on-iris-dataset/">
+                <img src="/blog/p/linear-regression-on-iris-dataset/pawel-czerwinski-8uZPynIu-rQ-unsplash_hud7e36f7e20e71be184458283bdae4646_55974_800x0_resize_q75_box.jpg"
+                        srcset="/blog/p/linear-regression-on-iris-dataset/pawel-czerwinski-8uZPynIu-rQ-unsplash_hud7e36f7e20e71be184458283bdae4646_55974_800x0_resize_q75_box.jpg 800w, /blog/p/linear-regression-on-iris-dataset/pawel-czerwinski-8uZPynIu-rQ-unsplash_hud7e36f7e20e71be184458283bdae4646_55974_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="534" 
+                        loading="lazy"
+                        alt="Featured image of post Linear Regression on Iris Dataset" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/blog/categories/machine-learning/" style="background-color: #2a9d8f; color: #fff;">
+                Machine Learning
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/blog/p/linear-regression-on-iris-dataset/">Linear Regression on Iris Dataset</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Performing simple linear regression on iris dataset.
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 22, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/blog/p/linear-regression-on-iris-dataset/">
+                <img src="/blog/p/linear-regression-on-iris-dataset/pawel-czerwinski-8uZPynIu-rQ-unsplash_hud7e36f7e20e71be184458283bdae4646_55974_800x0_resize_q75_box.jpg"
+                        srcset="/blog/p/linear-regression-on-iris-dataset/pawel-czerwinski-8uZPynIu-rQ-unsplash_hud7e36f7e20e71be184458283bdae4646_55974_800x0_resize_q75_box.jpg 800w, /blog/p/linear-regression-on-iris-dataset/pawel-czerwinski-8uZPynIu-rQ-unsplash_hud7e36f7e20e71be184458283bdae4646_55974_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="534" 
+                        loading="lazy"
+                        alt="Featured image of post Linear Regression on Iris Dataset" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/blog/categories/machine-learning/" style="background-color: #2a9d8f; color: #fff;">
+                Machine Learning
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/blog/p/linear-regression-on-iris-dataset/">Linear Regression on Iris Dataset</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Performing simple linear regression on iris dataset.
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 22, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+</article>
+        
+    </section>
+<footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 OneHotCoder
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.5.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+            </main>
+    
+    
+    <aside class="sidebar right-sidebar sticky">
+        
+            <form action="/blog/search/" class="search-form widget" >
+        <p>
+            <label>Search</label>
+            <input name="keyword" required placeholder="Type something..." />
+        
+            <button title="Search">
+                <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 423.662 423.662" style="enable-background:new 0 0 423.662 423.662;" xml:space="preserve">
+<g>
+	<path style="fill:#E6E6E6;" d="M274.255,259.401l21.51,21.51c-3.21,1.39-6.22,3.39-8.84,6.01s-4.63,5.63-6.01,8.84l-21.51-21.5
+		c2.62-2.29,5.18-4.69,7.67-7.18C269.575,264.581,271.965,262.021,274.255,259.401z"/>
+	<path style="fill:#666666;" d="M415.315,415.321c-11.13,11.12-29.17,11.12-40.3,0l-88.09-88.09c-8.51-8.51-10.51-21.06-6.01-31.47
+		c1.38-3.21,3.39-6.22,6.01-8.84s5.63-4.62,8.84-6.01c3.6-1.56,7.45-2.34,11.31-2.34c7.29,0,14.58,2.79,20.15,8.35l88.09,88.09
+		C426.445,386.141,426.445,404.191,415.315,415.321z"/>
+	<path style="fill:#AFDAF9;" d="M289.915,156.421c0,21.88-5.26,42.53-14.59,60.75l-60.16-72.71l-70.4,82.94l-48.81-58.98
+		l-50.93,61.57h-0.01c-13.96-21.09-22.09-46.38-22.09-73.57c0-73.73,59.77-133.49,133.5-133.49
+		C230.145,22.931,289.915,82.691,289.915,156.421z M135.245,93.921c0-11.41-9.25-20.65-20.65-20.65c-11.41,0-20.65,9.24-20.65,20.65
+		c0,11.4,9.24,20.65,20.65,20.65C125.995,114.571,135.245,105.321,135.245,93.921z"/>
+	<path style="fill:#F7E88B;" d="M144.765,227.401l70.4-82.94l60.16,72.71c-22.11,43.19-67.06,72.74-118.9,72.74
+		c-19.52,0-38.06-4.19-54.77-11.72L144.765,227.401z"/>
+	<path style="opacity:0.51;fill:#F2F2F2;enable-background:new    ;" d="M266.895,156.421c0,4.14-3.36,7.5-7.5,7.5
+		c-4.15,0-7.5-3.36-7.5-7.5c0-31.76-15.74-61.36-42.1-79.17c-3.43-2.32-4.34-6.98-2.02-10.41c2.32-3.43,6.98-4.34,10.42-2.02
+		C248.685,85.421,266.895,119.671,266.895,156.421z"/>
+	<path style="opacity:0.51;fill:#F2F2F2;enable-background:new    ;" d="M183.295,49.251c4.02,1,6.47,5.07,5.46,9.09
+		c-0.85,3.41-3.91,5.68-7.27,5.68c-0.6,0-1.21-0.07-1.82-0.22c-7.56-1.89-15.38-2.85-23.24-2.85c-4.15,0-7.5-3.36-7.5-7.5
+		s3.35-7.5,7.5-7.5C165.515,45.951,174.555,47.061,183.295,49.251z"/>
+	<path style="fill:#DDCA6C;" d="M95.955,168.421l48.81,58.98l-43.11,50.79c-23.14-10.41-42.77-27.23-56.64-48.2h0.01L95.955,168.421
+		z"/>
+	<path style="fill:#F9DD53;" d="M114.595,73.271c11.4,0,20.65,9.24,20.65,20.65c0,11.4-9.25,20.65-20.65,20.65
+		c-11.41,0-20.65-9.25-20.65-20.65C93.945,82.511,103.185,73.271,114.595,73.271z"/>
+	<path style="fill:#666666;" d="M267.075,45.761c-50.58-50.58-127.47-59.23-187.04-25.94c-12.29,6.87-23.84,15.51-34.27,25.94
+		c-61.02,61.02-61.02,160.3,0,221.32c58.52,58.52,152.24,60.91,213.64,7.18c2.62-2.29,5.18-4.69,7.67-7.18
+		c2.5-2.5,4.89-5.06,7.18-7.68c5.71-6.53,10.79-13.42,15.23-20.59C326.855,178.481,319.375,98.061,267.075,45.761z M275.325,217.171
+		c-4.3,8.4-9.46,16.28-15.38,23.53c-24.47,30.04-61.76,49.21-103.52,49.21c-19.52,0-38.06-4.19-54.77-11.72
+		c-23.14-10.41-42.77-27.23-56.64-48.2c-13.96-21.09-22.09-46.38-22.09-73.57c0-43.9,21.19-82.85,53.9-107.17
+		c22.23-16.54,49.77-26.32,79.6-26.32c73.72,0,133.49,59.76,133.49,133.49C289.915,178.301,284.655,198.951,275.325,217.171z"/>
+	<path style="opacity:0.56;fill:#808080;enable-background:new    ;" d="M415.315,415.321c-11.13,11.12-29.17,11.12-40.3,0
+		l-47.79-128.4l88.09,88.09C426.445,386.141,426.445,404.191,415.315,415.321z"/>
+	<path style="opacity:0.23;fill:#F2F2F2;enable-background:new    ;" d="M261.44,240.701c-24.47,30.04-61.76,49.21-103.52,49.21
+		c-19.52,0-38.06-4.19-54.77-11.72c-23.14-10.41-42.77-27.23-56.64-48.2c-13.96-21.09-22.09-46.38-22.09-73.57
+		c0-43.9,21.19-82.85,53.9-107.17c-0.06,1.85-0.09,3.7-0.09,5.56C78.23,156.581,160,239.251,261.44,240.701z"/>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+
+            </button>
+        </p>
+    </form>
+        
+            <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Archives</h2>
+
+        
+        
+        
+        
+        
+        <div class="widget-archive--list">
+            <div class="archives-year">
+                    <a href="/blog/archives/#2021">
+                        
+                            <span class="year">2021</span>
+                            <span class="count">2</span>
+                        
+                    </a> 
+                </div>
+            
+        </div>
+    </section>
+        
+            <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">Tags</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/blog/tags/linear-regression/" class="font_size_2">
+                linear regression
+            </a>
+        
+            <a href="/blog/tags/machine-learning/" class="font_size_2">
+                machine learning
+            </a>
+        
+            <a href="/blog/tags/regression/" class="font_size_2">
+                regression
+            </a>
+        
+            <a href="/blog/tags/iris-dataset/" class="font_size_1">
+                iris dataset
+            </a>
+        
+    </div>
+</section>
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/blog/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on OneHotCoder</title>
+    <link>https://onehotcoder.github.io/blog/page/</link>
+    <description>Recent content in Pages on OneHotCoder</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Nov 2021 12:40:40 +0501</lastBuildDate><atom:link href="https://onehotcoder.github.io/blog/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://onehotcoder.github.io/blog/about/</link>
+      <pubDate>Mon, 22 Nov 2021 12:40:40 +0501</pubDate>
+      
+      <guid>https://onehotcoder.github.io/blog/about/</guid>
+      <description>Hi this is me OneHotCoder Welcome to my site</description>
+    </item>
+    
+    <item>
+      <title>Archives</title>
+      <link>https://onehotcoder.github.io/blog/archives/</link>
+      <pubDate>Mon, 22 Nov 2021 12:40:40 +0501</pubDate>
+      
+      <guid>https://onehotcoder.github.io/blog/archives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>https://onehotcoder.github.io/blog/search/</link>
+      <pubDate>Mon, 22 Nov 2021 12:40:40 +0505</pubDate>
+      
+      <guid>https://onehotcoder.github.io/blog/search/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

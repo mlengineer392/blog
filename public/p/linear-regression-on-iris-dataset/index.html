@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Performing simple linear regression on iris dataset.'><title>Linear Regression on Iris Dataset</title>
+
+<link rel='canonical' href='https://onehotcoder.github.io/blog/p/linear-regression-on-iris-dataset/'>
+
+<link rel="stylesheet" href="/blog/scss/style.min.css"><meta property='og:title' content='Linear Regression on Iris Dataset'>
+<meta property='og:description' content='Performing simple linear regression on iris dataset.'>
+<meta property='og:url' content='https://onehotcoder.github.io/blog/p/linear-regression-on-iris-dataset/'>
+<meta property='og:site_name' content='OneHotCoder'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linear regression' /><meta property='article:tag' content='machine learning' /><meta property='article:tag' content='regression' /><meta property='article:published_time' content='2021-11-22T12:40:40&#43;05:30'/><meta property='article:modified_time' content='2021-11-22T12:40:40&#43;05:30'/><meta property='og:image' content='https://onehotcoder.github.io/blog/p/linear-regression-on-iris-dataset/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg' />
+<meta name="twitter:title" content="Linear Regression on Iris Dataset">
+<meta name="twitter:description" content="Performing simple linear regression on iris dataset."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://onehotcoder.github.io/blog/p/linear-regression-on-iris-dataset/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg' />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/blog" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Back</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/blog/p/linear-regression-on-iris-dataset/">
+                <img src="/blog/p/linear-regression-on-iris-dataset/pawel-czerwinski-8uZPynIu-rQ-unsplash_hud7e36f7e20e71be184458283bdae4646_55974_800x0_resize_q75_box.jpg"
+                        srcset="/blog/p/linear-regression-on-iris-dataset/pawel-czerwinski-8uZPynIu-rQ-unsplash_hud7e36f7e20e71be184458283bdae4646_55974_800x0_resize_q75_box.jpg 800w, /blog/p/linear-regression-on-iris-dataset/pawel-czerwinski-8uZPynIu-rQ-unsplash_hud7e36f7e20e71be184458283bdae4646_55974_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="534" 
+                        loading="lazy"
+                        alt="Featured image of post Linear Regression on Iris Dataset" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/blog/categories/machine-learning/" style="background-color: #2a9d8f; color: #fff;">
+                Machine Learning
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/blog/p/linear-regression-on-iris-dataset/">Linear Regression on Iris Dataset</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Performing simple linear regression on iris dataset.
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 22, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import Standard Libraries </span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="c1"># Import ML Libaries </span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span>
+
+<span class="c1"># Import Dataset from sklearn </span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load Iris Data</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+</code></pre></div><h2 id="preparing-iris-data">Preparing Iris Data</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris</span>
+</code></pre></div><pre><code>{'data': array([[5.1, 3.5, 1.4, 0.2],
+        [4.9, 3. , 1.4, 0.2],
+        [4.7, 3.2, 1.3, 0.2],
+        [4.6, 3.1, 1.5, 0.2],
+        [5. , 3.6, 1.4, 0.2],
+        [5.4, 3.9, 1.7, 0.4],
+        [4.6, 3.4, 1.4, 0.3],
+        [5. , 3.4, 1.5, 0.2],
+        [4.4, 2.9, 1.4, 0.2],
+        [4.9, 3.1, 1.5, 0.1],
+        [5.4, 3.7, 1.5, 0.2],
+        [4.8, 3.4, 1.6, 0.2],
+        [4.8, 3. , 1.4, 0.1],
+        [4.3, 3. , 1.1, 0.1],
+        [5.8, 4. , 1.2, 0.2],
+        [5.7, 4.4, 1.5, 0.4],
+        [5.4, 3.9, 1.3, 0.4],
+        [5.1, 3.5, 1.4, 0.3],
+        [5.7, 3.8, 1.7, 0.3],
+        [5.1, 3.8, 1.5, 0.3],
+        [5.4, 3.4, 1.7, 0.2],
+        [5.1, 3.7, 1.5, 0.4],
+        [4.6, 3.6, 1. , 0.2],
+        [5.1, 3.3, 1.7, 0.5],
+        [4.8, 3.4, 1.9, 0.2],
+        [5. , 3. , 1.6, 0.2],
+        [5. , 3.4, 1.6, 0.4],
+        [5.2, 3.5, 1.5, 0.2],
+        [5.2, 3.4, 1.4, 0.2],
+        [4.7, 3.2, 1.6, 0.2],
+        [4.8, 3.1, 1.6, 0.2],
+        [5.4, 3.4, 1.5, 0.4],
+        [5.2, 4.1, 1.5, 0.1],
+        [5.5, 4.2, 1.4, 0.2],
+        [4.9, 3.1, 1.5, 0.2],
+        [5. , 3.2, 1.2, 0.2],
+        [5.5, 3.5, 1.3, 0.2],
+        [4.9, 3.6, 1.4, 0.1],
+        [4.4, 3. , 1.3, 0.2],
+        [5.1, 3.4, 1.5, 0.2],
+        [5. , 3.5, 1.3, 0.3],
+        [4.5, 2.3, 1.3, 0.3],
+        [4.4, 3.2, 1.3, 0.2],
+        [5. , 3.5, 1.6, 0.6],
+        [5.1, 3.8, 1.9, 0.4],
+        [4.8, 3. , 1.4, 0.3],
+        [5.1, 3.8, 1.6, 0.2],
+        [4.6, 3.2, 1.4, 0.2],
+        [5.3, 3.7, 1.5, 0.2],
+        [5. , 3.3, 1.4, 0.2],
+        [7. , 3.2, 4.7, 1.4],
+        [6.4, 3.2, 4.5, 1.5],
+        [6.9, 3.1, 4.9, 1.5],
+        [5.5, 2.3, 4. , 1.3],
+        [6.5, 2.8, 4.6, 1.5],
+        [5.7, 2.8, 4.5, 1.3],
+        [6.3, 3.3, 4.7, 1.6],
+        [4.9, 2.4, 3.3, 1. ],
+        [6.6, 2.9, 4.6, 1.3],
+        [5.2, 2.7, 3.9, 1.4],
+        [5. , 2. , 3.5, 1. ],
+        [5.9, 3. , 4.2, 1.5],
+        [6. , 2.2, 4. , 1. ],
+        [6.1, 2.9, 4.7, 1.4],
+        [5.6, 2.9, 3.6, 1.3],
+        [6.7, 3.1, 4.4, 1.4],
+        [5.6, 3. , 4.5, 1.5],
+        [5.8, 2.7, 4.1, 1. ],
+        [6.2, 2.2, 4.5, 1.5],
+        [5.6, 2.5, 3.9, 1.1],
+        [5.9, 3.2, 4.8, 1.8],
+        [6.1, 2.8, 4. , 1.3],
+        [6.3, 2.5, 4.9, 1.5],
+        [6.1, 2.8, 4.7, 1.2],
+        [6.4, 2.9, 4.3, 1.3],
+        [6.6, 3. , 4.4, 1.4],
+        [6.8, 2.8, 4.8, 1.4],
+        [6.7, 3. , 5. , 1.7],
+        [6. , 2.9, 4.5, 1.5],
+        [5.7, 2.6, 3.5, 1. ],
+        [5.5, 2.4, 3.8, 1.1],
+        [5.5, 2.4, 3.7, 1. ],
+        [5.8, 2.7, 3.9, 1.2],
+        [6. , 2.7, 5.1, 1.6],
+        [5.4, 3. , 4.5, 1.5],
+        [6. , 3.4, 4.5, 1.6],
+        [6.7, 3.1, 4.7, 1.5],
+        [6.3, 2.3, 4.4, 1.3],
+        [5.6, 3. , 4.1, 1.3],
+        [5.5, 2.5, 4. , 1.3],
+        [5.5, 2.6, 4.4, 1.2],
+        [6.1, 3. , 4.6, 1.4],
+        [5.8, 2.6, 4. , 1.2],
+        [5. , 2.3, 3.3, 1. ],
+        [5.6, 2.7, 4.2, 1.3],
+        [5.7, 3. , 4.2, 1.2],
+        [5.7, 2.9, 4.2, 1.3],
+        [6.2, 2.9, 4.3, 1.3],
+        [5.1, 2.5, 3. , 1.1],
+        [5.7, 2.8, 4.1, 1.3],
+        [6.3, 3.3, 6. , 2.5],
+        [5.8, 2.7, 5.1, 1.9],
+        [7.1, 3. , 5.9, 2.1],
+        [6.3, 2.9, 5.6, 1.8],
+        [6.5, 3. , 5.8, 2.2],
+        [7.6, 3. , 6.6, 2.1],
+        [4.9, 2.5, 4.5, 1.7],
+        [7.3, 2.9, 6.3, 1.8],
+        [6.7, 2.5, 5.8, 1.8],
+        [7.2, 3.6, 6.1, 2.5],
+        [6.5, 3.2, 5.1, 2. ],
+        [6.4, 2.7, 5.3, 1.9],
+        [6.8, 3. , 5.5, 2.1],
+        [5.7, 2.5, 5. , 2. ],
+        [5.8, 2.8, 5.1, 2.4],
+        [6.4, 3.2, 5.3, 2.3],
+        [6.5, 3. , 5.5, 1.8],
+        [7.7, 3.8, 6.7, 2.2],
+        [7.7, 2.6, 6.9, 2.3],
+        [6. , 2.2, 5. , 1.5],
+        [6.9, 3.2, 5.7, 2.3],
+        [5.6, 2.8, 4.9, 2. ],
+        [7.7, 2.8, 6.7, 2. ],
+        [6.3, 2.7, 4.9, 1.8],
+        [6.7, 3.3, 5.7, 2.1],
+        [7.2, 3.2, 6. , 1.8],
+        [6.2, 2.8, 4.8, 1.8],
+        [6.1, 3. , 4.9, 1.8],
+        [6.4, 2.8, 5.6, 2.1],
+        [7.2, 3. , 5.8, 1.6],
+        [7.4, 2.8, 6.1, 1.9],
+        [7.9, 3.8, 6.4, 2. ],
+        [6.4, 2.8, 5.6, 2.2],
+        [6.3, 2.8, 5.1, 1.5],
+        [6.1, 2.6, 5.6, 1.4],
+        [7.7, 3. , 6.1, 2.3],
+        [6.3, 3.4, 5.6, 2.4],
+        [6.4, 3.1, 5.5, 1.8],
+        [6. , 3. , 4.8, 1.8],
+        [6.9, 3.1, 5.4, 2.1],
+        [6.7, 3.1, 5.6, 2.4],
+        [6.9, 3.1, 5.1, 2.3],
+        [5.8, 2.7, 5.1, 1.9],
+        [6.8, 3.2, 5.9, 2.3],
+        [6.7, 3.3, 5.7, 2.5],
+        [6.7, 3. , 5.2, 2.3],
+        [6.3, 2.5, 5. , 1.9],
+        [6.5, 3. , 5.2, 2. ],
+        [6.2, 3.4, 5.4, 2.3],
+        [5.9, 3. , 5.1, 1.8]]),
+ 'target': array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]),
+ 'frame': None,
+ 'target_names': array(['setosa', 'versicolor', 'virginica'], dtype='&lt;U10'),
+ 'DESCR': '.. _iris_dataset:\n\nIris plants dataset\n--------------------\n\n**Data Set Characteristics:**\n\n    :Number of Instances: 150 (50 in each of three classes)\n    :Number of Attributes: 4 numeric, predictive attributes and the class\n    :Attribute Information:\n        - sepal length in cm\n        - sepal width in cm\n        - petal length in cm\n        - petal width in cm\n        - class:\n                - Iris-Setosa\n                - Iris-Versicolour\n                - Iris-Virginica\n                \n    :Summary Statistics:\n\n    ============== ==== ==== ======= ===== ====================\n                    Min  Max   Mean    SD   Class Correlation\n    ============== ==== ==== ======= ===== ====================\n    sepal length:   4.3  7.9   5.84   0.83    0.7826\n    sepal width:    2.0  4.4   3.05   0.43   -0.4194\n    petal length:   1.0  6.9   3.76   1.76    0.9490  (high!)\n    petal width:    0.1  2.5   1.20   0.76    0.9565  (high!)\n    ============== ==== ==== ======= ===== ====================\n\n    :Missing Attribute Values: None\n    :Class Distribution: 33.3% for each of 3 classes.\n    :Creator: R.A. Fisher\n    :Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)\n    :Date: July, 1988\n\nThe famous Iris database, first used by Sir R.A. Fisher. The dataset is taken\nfrom Fisher\'s paper. Note that it\'s the same as in R, but not as in the UCI\nMachine Learning Repository, which has two wrong data points.\n\nThis is perhaps the best known database to be found in the\npattern recognition literature.  Fisher\'s paper is a classic in the field and\nis referenced frequently to this day.  (See Duda &amp; Hart, for example.)  The\ndata set contains 3 classes of 50 instances each, where each class refers to a\ntype of iris plant.  One class is linearly separable from the other 2; the\nlatter are NOT linearly separable from each other.\n\n.. topic:: References\n\n   - Fisher, R.A. &quot;The use of multiple measurements in taxonomic problems&quot;\n     Annual Eugenics, 7, Part II, 179-188 (1936); also in &quot;Contributions to\n     Mathematical Statistics&quot; (John Wiley, NY, 1950).\n   - Duda, R.O., &amp; Hart, P.E. (1973) Pattern Classification and Scene Analysis.\n     (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page 218.\n   - Dasarathy, B.V. (1980) &quot;Nosing Around the Neighborhood: A New System\n     Structure and Classification Rule for Recognition in Partially Exposed\n     Environments&quot;.  IEEE Transactions on Pattern Analysis and Machine\n     Intelligence, Vol. PAMI-2, No. 1, 67-71.\n   - Gates, G.W. (1972) &quot;The Reduced Nearest Neighbor Rule&quot;.  IEEE Transactions\n     on Information Theory, May 1972, 431-433.\n   - See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&quot;s AUTOCLASS II\n     conceptual clustering system finds 3 classes in the data.\n   - Many, many more ...',
+ 'feature_names': ['sepal length (cm)',
+  'sepal width (cm)',
+  'petal length (cm)',
+  'petal width (cm)'],
+ 'filename': 'iris.csv',
+ 'data_module': 'sklearn.datasets.data'}
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris_df</span>
+</code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+</code></pre></div><pre><code>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span>
+</code></pre></div><pre><code>array(['setosa', 'versicolor', 'virginica'], dtype='&lt;U10')
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">target_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">converter</span><span class="p">(</span><span class="n">specie</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">specie</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;setosa&#39;</span>
+    <span class="k">elif</span> <span class="n">specie</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;versicolor&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;virginica&#39;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">target_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">target_df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">converter</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">target_df</span>
+</code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">target_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris_df</span>
+</code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h2 id="overview-of-iris-data">Overview of Iris Data</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</code></pre></div><pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 5 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   sepal length (cm)  150 non-null    float64
+ 1   sepal width (cm)   150 non-null    float64
+ 2   petal length (cm)  150 non-null    float64
+ 3   petal width (cm)   150 non-null    float64
+ 4   species            150 non-null    object 
+dtypes: float64(4), object(1)
+memory usage: 6.0+ KB
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris_df</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div><pre><code>(150, 5)
+</code></pre>
+<h2 id="visualisation-of-iris-data">Visualisation of Iris Data</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span> <span class="s1">&#39;species&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>&lt;seaborn.axisgrid.PairGrid at 0x25c35d94fa0&gt;
+</code></pre>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 112; 
+			flex-basis: 271px"
+	>
+	<a href="/blog/p/linear-regression-on-iris-dataset/output_19_1.png" data-size="801x709">
+		<img src="/blog/p/linear-regression-on-iris-dataset/output_19_1.png"
+			width="801"
+			height="709"
+			srcset="/blog/p/linear-regression-on-iris-dataset/output_19_1_hu5e7f78c3de4672b8b8a301ab26083777_177011_480x0_resize_box_3.png 480w, /blog/p/linear-regression-on-iris-dataset/output_19_1_hu5e7f78c3de4672b8b8a301ab26083777_177011_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="png">
+	</a>
+	
+	<figcaption>png</figcaption>
+	
+</figure></p>
+<h2 id="problem-predict-sepal-length-cm">Problem: Predict sepal length (cm)</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">target_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">target_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Variables </span>
+<span class="n">X</span><span class="o">=</span> <span class="n">iris_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span> <span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span> <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">]</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span> <span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span> <span class="mi">101</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div><pre><code>(100, 4)
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div><pre><code>(50, 4)
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Instantiating LinearRegression() Model</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</code></pre></div><pre><code>LinearRegression()
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</code></pre></div><pre><code>array([5.46114587, 5.07345452, 4.9347765 , 6.99564965, 6.54274665,
+       5.98101314, 5.68344523, 5.47200924, 5.87249006, 4.687635  ,
+       6.2935498 , 5.53302753, 4.90789461, 7.34015348, 6.17439086,
+       6.09386911, 6.00159206, 6.01550096, 4.73818534, 6.6970219 ,
+       5.49567769, 5.21721782, 6.03683228, 6.24318298, 6.09386911,
+       5.5452921 , 5.09735047, 5.85437218, 4.84437129, 4.10007944,
+       6.64781317, 5.60092772, 6.64459972, 5.7094508 , 6.47068148,
+       6.18614616, 6.42031467, 5.96401471, 5.88658249, 6.82494485,
+       5.10127233, 4.76091786, 4.97328977, 6.47501437, 6.19911914,
+       4.51050332, 6.78415406, 5.98213258, 4.83046239, 4.93319177])
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">pred</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Evaluating Model&#39;s Performance</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Absolute Error:&#39;</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Squared Error:&#39;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Root Squared Error:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">)))</span>
+</code></pre></div><pre><code>Mean Absolute Error: 0.2595570975563035
+Mean Squared Error: 0.10174529564238954
+Mean Root Squared Error: 0.3189753840696638
+</code></pre>
+<h2 id="testing">Testing</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">iris_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+</code></pre></div><pre><code>sepal length (cm)    4.6
+sepal width (cm)     3.4
+petal length (cm)    1.4
+petal width (cm)     0.3
+species              0.0
+Name: 6, dtype: float64
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sepal length (cm)&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">4.6</span><span class="p">],</span>
+    <span class="s1">&#39;sepal width (cm)&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">3.4</span><span class="p">],</span>
+    <span class="s1">&#39;petal length (cm)&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">1.4</span><span class="p">],</span>
+    <span class="s1">&#39;petal width (cm)&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">],</span>
+    <span class="s1">&#39;species&#39;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span> <span class="n">d</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">test_df</span>
+</code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">X_test</span> <span class="o">=</span> <span class="n">test_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">]</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</code></pre></div><pre><code>array([4.88749921])
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">pred</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Predicted Sepal Length (cm):&#39;</span><span class="p">,</span> <span class="n">pred</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Actual Sepal Length (cm):&#39;</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">)</span>
+</code></pre></div><pre><code>Predicted Sepal Length (cm): 4.887499211502661
+Actual Sepal Length (cm): 4.6
+</code></pre>
+<h2 id="end">END</h2>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/blog/tags/linear-regression/">linear regression</a>
+        
+            <a href="/blog/tags/machine-learning/">machine learning</a>
+        
+            <a href="/blog/tags/regression/">regression</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/blog/p/linear-regression-on-iris-dataset/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/p/linear-regression-on-iris-dataset/_hud7e36f7e20e71be184458283bdae4646_55974_23a5d351d2fc2374f952239b6e9c423a.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-xRTZFpFxc6SKQuARS0aZYQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linear Regression on Iris Dataset</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 OneHotCoder
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.5.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Table of contents</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#preparing-iris-data">Preparing Iris Data</a></li>
+    <li><a href="#overview-of-iris-data">Overview of Iris Data</a></li>
+    <li><a href="#visualisation-of-iris-data">Visualisation of Iris Data</a></li>
+    <li><a href="#problem-predict-sepal-length-cm">Problem: Predict sepal length (cm)</a></li>
+    <li><a href="#testing">Testing</a></li>
+    <li><a href="#end">END</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/blog/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

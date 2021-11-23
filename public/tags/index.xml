@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on OneHotCoder</title>
+    <link>https://onehotcoder.github.io/blog/tags/</link>
+    <description>Recent content in Tags on OneHotCoder</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Nov 2021 12:40:40 +0530</lastBuildDate><atom:link href="https://onehotcoder.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linear regression</title>
+      <link>https://onehotcoder.github.io/blog/tags/linear-regression/</link>
+      <pubDate>Mon, 22 Nov 2021 12:40:40 +0530</pubDate>
+      
+      <guid>https://onehotcoder.github.io/blog/tags/linear-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://onehotcoder.github.io/blog/tags/machine-learning/</link>
+      <pubDate>Mon, 22 Nov 2021 12:40:40 +0530</pubDate>
+      
+      <guid>https://onehotcoder.github.io/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regression</title>
+      <link>https://onehotcoder.github.io/blog/tags/regression/</link>
+      <pubDate>Mon, 22 Nov 2021 12:40:40 +0530</pubDate>
+      
+      <guid>https://onehotcoder.github.io/blog/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iris dataset</title>
+      <link>https://onehotcoder.github.io/blog/tags/iris-dataset/</link>
+      <pubDate>Mon, 22 Nov 2021 12:40:40 +0550</pubDate>
+      
+      <guid>https://onehotcoder.github.io/blog/tags/iris-dataset/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
